@@ -1,0 +1,34 @@
+<section class="search-toolbar" aria-label="Поиск и фильтры">
+  <mat-form-field class="search-toolbar__field" appearance="outline">
+    <mat-label>Найти пользователя</mat-label>
+    <input
+      matInput
+      type="text"
+      role="searchbox"
+      placeholder="Имя или email"
+      autocomplete="off"
+      spellcheck="false"
+      [attr.aria-controls]="resultsId"
+      [formControl]="searchControl"
+    />
+    <button
+      matSuffix
+      mat-button
+      type="button"
+      aria-label="Очистить поиск"
+      [disabled]="!searchControl.value"
+      (click)="onClearSearch()"
+    >
+      Очистить
+    </button>
+  </mat-form-field>
+
+  <div class="search-toolbar__filters">
+    <mat-checkbox [checked]="isFavoritesOnly()" (change)="favoritesOnlyChange.emit($event.checked)">
+      Только избранные
+    </mat-checkbox>
+    <span class="search-toolbar__count" aria-live="polite">
+      В избранном: {{ favoritesCount() }}
+    </span>
+  </div>
+</section>

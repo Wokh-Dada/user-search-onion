@@ -1,0 +1,29 @@
+<section aria-label="Результаты поиска" [id]="resultsId" [attr.aria-busy]="status() === 'loading'">
+  @if (status() === 'loading') {
+    <div class="user-list__status" role="status">
+      <mat-spinner aria-hidden="true" [diameter]="spinnerDiameter" />
+      <p>Поиск пользователей…</p>
+    </div>
+  } @else if (status() === 'error') {
+    <div class="user-list__status">
+      <p role="alert">Не удалось загрузить пользователей. Попробуйте ещё раз.</p>
+      <button mat-flat-button type="button" (click)="retry.emit()">Повторить поиск</button>
+    </div>
+  } @else {
+    <p class="user-list__count" role="status">Найдено: {{ users().length }}</p>
+
+    @if (users().length === 0) {
+      <p class="user-list__empty">
+        Пользователи не найдены. Измените запрос или отключите фильтр избранного.
+      </p>
+    } @else {
+      <ul class="user-list__items">
+        @for (user of users(); track user.id) {
+          <li>
+            <onion-user-card [user]="user" (favoriteToggle)="favoriteToggle.emit($event)" />
+          </li>
+        }
+      </ul>
+    }
+  }
+</section>

@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.search-toolbar {
+  &__field {
+    width: 100%;
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  &__count {
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
