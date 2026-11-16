@@ -1,26 +1,27 @@
 @use '@angular/material' as mat;
 
 html {
-  color-scheme: light;
-  @include mat.theme(
-    (
-      color: mat.$azure-palette,
-      typography: Arial,
-      density: 0,
-    )
-  );
+    color-scheme: light;
+
+    @include mat.theme(
+        (
+            color: mat.$azure-palette,
+            typography: Arial,
+            density: 0,
+        )
+    );
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  min-width: 20rem;
-  margin: 0;
-  font: var(--mat-sys-body-medium);
-  color: var(--mat-sys-on-surface);
-  background: var(--mat-sys-surface);
+    min-width: 20rem;
+    margin: 0;
+    font: var(--mat-sys-body-medium);
+    color: var(--mat-sys-on-surface);
+    background: var(--mat-sys-surface);
 }

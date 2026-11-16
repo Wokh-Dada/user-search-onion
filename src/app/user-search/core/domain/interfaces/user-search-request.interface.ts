@@ -1,4 +1,4 @@
 export interface IUserSearchRequest {
-  readonly query: string;
-  readonly delayMs: number;
+    readonly query: string;
+    readonly delayMs: number;
 }

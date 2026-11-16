@@ -1,33 +1,33 @@
 <main class="user-search-page">
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>
-        <h1 class="user-search-page__title">Пользователи</h1>
-      </mat-card-title>
-      <mat-card-subtitle>Найдите пользователя и добавьте в избранное</mat-card-subtitle>
-    </mat-card-header>
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 class="user-search-page__title">Пользователи</h1>
+            </mat-card-title>
+            <mat-card-subtitle>Найдите пользователя и добавьте в избранное</mat-card-subtitle>
+        </mat-card-header>
 
-    <mat-card-content class="user-search-page__content">
-      <onion-search-toolbar
-        [isFavoritesOnly]="vm().isFavoritesOnly"
-        [favoritesCount]="vm().favoritesCount"
-        (queryChange)="onSearch($event)"
-        (favoritesOnlyChange)="onFavoritesOnlyChange($event)"
-      />
+        <mat-card-content class="user-search-page__content">
+            <onion-search-toolbar
+                [isFavoritesOnly]="vm().isFavoritesOnly"
+                [favoritesCount]="vm().favoritesCount"
+                (queryChange)="onSearch($event)"
+                (favoritesOnlyChange)="onFavoritesOnlyChange($event)"
+            />
 
-      @if (vm().hasFavoritesError) {
-        <p class="user-search-page__warning" role="alert">
-          Не удалось восстановить или сохранить избранное. Можно продолжить работу, но изменения
-          могут потеряться после перезагрузки страницы.
-        </p>
-      }
+            @if (vm().hasFavoritesError) {
+                <p role="alert" class="user-search-page__warning">
+                    Не удалось восстановить или сохранить избранное. Можно продолжить работу, но
+                    изменения могут потеряться после перезагрузки страницы.
+                </p>
+            }
 
-      <onion-user-list
-        [users]="vm().users"
-        [status]="vm().status"
-        (favoriteToggle)="onToggleFavorite($event)"
-        (retry)="onRetry()"
-      />
-    </mat-card-content>
-  </mat-card>
+            <onion-user-list
+                [users]="vm().users"
+                [status]="vm().status"
+                (favoriteToggle)="onToggleFavorite($event)"
+                (retry)="onRetry()"
+            />
+        </mat-card-content>
+    </mat-card>
 </main>

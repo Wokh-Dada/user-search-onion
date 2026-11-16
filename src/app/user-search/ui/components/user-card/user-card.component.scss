@@ -1,38 +1,38 @@
 :host {
-  display: block;
+    display: block;
 }
 
 .user-card {
-  &__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
 
-  &__details {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
+    &__details {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
 
-  &__name {
-    margin: 0;
-    font: var(--mat-sys-title-medium);
-  }
+    &__name {
+        margin: 0;
+        font: var(--mat-sys-title-medium);
+    }
 
-  &__email {
-    margin: 0.25rem 0 0;
-    color: var(--mat-sys-on-surface-variant);
-  }
+    &__email {
+        margin: 0.25rem 0 0;
+        color: var(--mat-sys-on-surface-variant);
+    }
 
-  &__favorite_selected {
-    background: var(--mat-sys-secondary-container);
-  }
+    &__favorite_selected {
+        background: var(--mat-sys-secondary-container);
+    }
 }
 
-@media (max-width: 36rem) {
-  .user-card__content {
-    flex-direction: column;
-    align-items: stretch;
-  }
+@media (width <= 36rem) {
+    .user-card__content {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }

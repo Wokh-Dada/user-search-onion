@@ -1,20 +1,20 @@
-<mat-card class="user-card" appearance="outlined">
-  <mat-card-content class="user-card__content">
-    <div class="user-card__details">
-      <h2 class="user-card__name">{{ user().name }}</h2>
-      <p class="user-card__email">{{ user().email }}</p>
-    </div>
-    <button
-      mat-stroked-button
-      class="user-card__favorite"
-      type="button"
-      [class.user-card__favorite_selected]="user().isFavorite"
-      [attr.aria-label]="
-        (user().isFavorite ? 'Убрать из избранного: ' : 'В избранное: ') + user().name
-      "
-      (click)="favoriteToggle.emit(user().id)"
-    >
-      {{ user().isFavorite ? 'Убрать из избранного' : 'В избранное' }}
-    </button>
-  </mat-card-content>
+<mat-card appearance="outlined" class="user-card">
+    <mat-card-content class="user-card__content">
+        <div class="user-card__details">
+            <h2 class="user-card__name">{{ user().name }}</h2>
+            <p class="user-card__email">{{ user().email }}</p>
+        </div>
+        <button
+            mat-stroked-button
+            type="button"
+            class="user-card__favorite"
+            [class.user-card__favorite_selected]="user().isFavorite"
+            [attr.aria-label]="
+                (user().isFavorite ? 'Убрать из избранного: ' : 'В избранное: ') + user().name
+            "
+            (click)="favoriteToggle.emit(user().id)"
+        >
+            {{ user().isFavorite ? 'Убрать из избранного' : 'В избранное' }}
+        </button>
+    </mat-card-content>
 </mat-card>
